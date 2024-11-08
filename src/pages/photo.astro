@@ -4,6 +4,7 @@ import { getCldImageUrl } from "astro-cloudinary/helpers";
 import Heading from "fulldev-ui/components/Heading.astro";
 import Button from "fulldev-ui/components/Button.astro";
 
+
 const { searchParams } = Astro.url;
 const id = searchParams.get("id");
 
@@ -26,7 +27,7 @@ console.log(id, url);
         as="button"
         color="brand"
       >
-        Aliens
+        Gosts
       </Button>
       <Button
         class="add"
@@ -46,6 +47,17 @@ console.log(id, url);
       >
         Playa
       </Button>
+    </Button>
+
+    <Button
+      class="add"
+      data-topic="background"
+      icon="palette"
+      as="button"
+      color="brand"
+    >
+      Blueviolet
+    </Button>
     </header>
 
     <two-up>
@@ -86,10 +98,11 @@ console.log(id, url);
     ghost: "generar aliens",
     dead: "generar mundo post apocaliptico",
     evil: "generar playa",
+    background: "rgb:8A2BE2",
     custom: "Por defecto"
   } as const
 
-  const url = getCldImageUrl({ src:id})
+  
 
   buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
